@@ -1,112 +1,173 @@
-import { Image } from 'expo-image';
-import { Platform, StyleSheet } from 'react-native';
+import React from 'react';
+import { SafeAreaView, ScrollView, Text, View } from 'react-native';
+import { LinearGradient } from 'expo-linear-gradient';
+import { useEntries } from '../../hooks/useEntries';
 
-import { Collapsible } from '@/components/ui/collapsible';
-import { ExternalLink } from '@/components/external-link';
-import ParallaxScrollView from '@/components/parallax-scroll-view';
-import { ThemedText } from '@/components/themed-text';
-import { ThemedView } from '@/components/themed-view';
-import { IconSymbol } from '@/components/ui/icon-symbol';
-import { Fonts } from '@/constants/theme';
+export default function InsightsScreen() {
+  const { entries, averageMood } = useEntries();
 
-export default function TabTwoScreen() {
+  const lastEntries = entries.slice(0, 7).reverse();
+
   return (
-    <ParallaxScrollView
-      headerBackgroundColor={{ light: '#D0D0D0', dark: '#353636' }}
-      headerImage={
-        <IconSymbol
-          size={310}
-          color="#808080"
-          name="chevron.left.forwardslash.chevron.right"
-          style={styles.headerImage}
-        />
-      }>
-      <ThemedView style={styles.titleContainer}>
-        <ThemedText
-          type="title"
+    <SafeAreaView style={{ flex: 1, backgroundColor: '#020617' }}>
+      <LinearGradient
+        colors={['#4c1d95', '#7c3aed', '#a855f7']}
+        start={{ x: 0, y: 0 }}
+        end={{ x: 1, y: 1 }}
+        style={{
+          paddingHorizontal: 20,
+          paddingTop: 24,
+          paddingBottom: 22,
+          borderBottomLeftRadius: 24,
+          borderBottomRightRadius: 24,
+        }}
+      >
+        <Text
           style={{
-            fontFamily: Fonts.rounded,
-          }}>
-          Explore
-        </ThemedText>
-      </ThemedView>
-      <ThemedText>This app includes example code to help you get started.</ThemedText>
-      <Collapsible title="File-based routing">
-        <ThemedText>
-          This app has two screens:{' '}
-          <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText> and{' '}
-          <ThemedText type="defaultSemiBold">app/(tabs)/explore.tsx</ThemedText>
-        </ThemedText>
-        <ThemedText>
-          The layout file in <ThemedText type="defaultSemiBold">app/(tabs)/_layout.tsx</ThemedText>{' '}
-          sets up the tab navigator.
-        </ThemedText>
-        <ExternalLink href="https://docs.expo.dev/router/introduction">
-          <ThemedText type="link">Learn more</ThemedText>
-        </ExternalLink>
-      </Collapsible>
-      <Collapsible title="Android, iOS, and web support">
-        <ThemedText>
-          You can open this project on Android, iOS, and the web. To open the web version, press{' '}
-          <ThemedText type="defaultSemiBold">w</ThemedText> in the terminal running this project.
-        </ThemedText>
-      </Collapsible>
-      <Collapsible title="Images">
-        <ThemedText>
-          For static images, you can use the <ThemedText type="defaultSemiBold">@2x</ThemedText> and{' '}
-          <ThemedText type="defaultSemiBold">@3x</ThemedText> suffixes to provide files for
-          different screen densities
-        </ThemedText>
-        <Image
-          source={require('@/assets/images/react-logo.png')}
-          style={{ width: 100, height: 100, alignSelf: 'center' }}
-        />
-        <ExternalLink href="https://reactnative.dev/docs/images">
-          <ThemedText type="link">Learn more</ThemedText>
-        </ExternalLink>
-      </Collapsible>
-      <Collapsible title="Light and dark mode components">
-        <ThemedText>
-          This template has light and dark mode support. The{' '}
-          <ThemedText type="defaultSemiBold">useColorScheme()</ThemedText> hook lets you inspect
-          what the user&apos;s current color scheme is, and so you can adjust UI colors accordingly.
-        </ThemedText>
-        <ExternalLink href="https://docs.expo.dev/develop/user-interface/color-themes/">
-          <ThemedText type="link">Learn more</ThemedText>
-        </ExternalLink>
-      </Collapsible>
-      <Collapsible title="Animations">
-        <ThemedText>
-          This template includes an example of an animated component. The{' '}
-          <ThemedText type="defaultSemiBold">components/HelloWave.tsx</ThemedText> component uses
-          the powerful{' '}
-          <ThemedText type="defaultSemiBold" style={{ fontFamily: Fonts.mono }}>
-            react-native-reanimated
-          </ThemedText>{' '}
-          library to create a waving hand animation.
-        </ThemedText>
-        {Platform.select({
-          ios: (
-            <ThemedText>
-              The <ThemedText type="defaultSemiBold">components/ParallaxScrollView.tsx</ThemedText>{' '}
-              component provides a parallax effect for the header image.
-            </ThemedText>
-          ),
-        })}
-      </Collapsible>
-    </ParallaxScrollView>
+            color: '#e5e7eb',
+            fontSize: 13,
+            marginBottom: 4,
+          }}
+        >
+          Insights MindWork
+        </Text>
+        <Text
+          style={{
+            color: 'white',
+            fontSize: 22,
+            fontWeight: '700',
+          }}
+        >
+          Panorama do seu bem-estar
+        </Text>
+        <Text style={{ color: '#e0e7ff', fontSize: 12, marginTop: 4 }}>
+          Acompanhe a evolução do seu humor com base nos check-ins recentes.
+        </Text>
+      </LinearGradient>
+
+      <ScrollView contentContainerStyle={{ padding: 20, paddingBottom: 60 }}>
+        {/* Card geral */}
+        <View
+          style={{
+            backgroundColor: '#020617',
+            borderRadius: 16,
+            padding: 16,
+            marginBottom: 24,
+            borderWidth: 1,
+            borderColor: '#1f2937',
+          }}
+        >
+          <Text
+            style={{
+              color: '#a5b4fc',
+              fontSize: 13,
+              fontWeight: '600',
+              marginBottom: 4,
+            }}
+          >
+            Visão geral
+          </Text>
+          <Text
+            style={{
+              color: '#e5e7eb',
+              fontSize: 16,
+              fontWeight: '600',
+            }}
+          >
+            Humor médio recente: {averageMood ? `${averageMood}/5` : 'sem dados ainda'}
+          </Text>
+          <Text style={{ color: '#9ca3af', fontSize: 13, marginTop: 4 }}>
+            Baseado nos check-ins armazenados localmente neste dispositivo.
+          </Text>
+        </View>
+
+        {/* Gráfico */}
+        <Text
+          style={{
+            color: '#e5e7eb',
+            fontSize: 16,
+            fontWeight: '600',
+            marginBottom: 12,
+          }}
+        >
+          Evolução do humor
+        </Text>
+
+        {lastEntries.length === 0 ? (
+          <Text style={{ color: '#9ca3af' }}>
+            Você ainda não registrou nenhum humor. Volte ao Diário e faça seu primeiro check-in.
+          </Text>
+        ) : (
+          <View
+            style={{
+              backgroundColor: '#020617',
+              borderRadius: 16,
+              padding: 16,
+              borderWidth: 1,
+              borderColor: '#1f2937',
+            }}
+          >
+            <View
+              style={{
+                height: 180,
+                flexDirection: 'row',
+                alignItems: 'flex-end',
+                justifyContent: 'space-between',
+                marginBottom: 12,
+              }}
+            >
+              {lastEntries.map(entry => {
+                const barHeight = 20 + entry.mood * 24;
+
+                const labelDate = new Date(entry.date).toLocaleDateString('pt-BR', {
+                  day: '2-digit',
+                  month: '2-digit',
+                });
+
+                return (
+                  <View
+                    key={entry.id}
+                    style={{ alignItems: 'center', flex: 1, marginHorizontal: 4 }}
+                  >
+                    <View
+                      style={{
+                        width: 24,
+                        height: barHeight,
+                        borderRadius: 999,
+                        backgroundColor: '#a855f7',
+                      }}
+                    />
+                    <Text
+                      style={{
+                        color: '#9ca3af',
+                        fontSize: 11,
+                        marginTop: 4,
+                      }}
+                    >
+                      {labelDate}
+                    </Text>
+                    <Text
+                      style={{
+                        color: '#e5e7eb',
+                        fontSize: 11,
+                      }}
+                    >
+                      {entry.mood}/5
+                    </Text>
+                  </View>
+                );
+              })}
+            </View>
+
+            <View style={{ borderTopWidth: 1, borderTopColor: '#1f2937', paddingTop: 8 }}>
+              <Text style={{ color: '#9ca3af', fontSize: 12 }}>
+                Cada barra representa um check-in recente. Quanto maior a barra, melhor o humor
+                registrado naquele momento.
+              </Text>
+            </View>
+          </View>
+        )}
+      </ScrollView>
+    </SafeAreaView>
   );
 }
-
-const styles = StyleSheet.create({
-  headerImage: {
-    color: '#808080',
-    bottom: -90,
-    left: -35,
-    position: 'absolute',
-  },
-  titleContainer: {
-    flexDirection: 'row',
-    gap: 8,
-  },
-});
