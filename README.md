@@ -144,7 +144,7 @@ No vídeo entregue junto à disciplina, são demonstrados:
 - Insights com gráfico de humor
 - Alertas baseados nos registros
 
-Link do vídeo: [![Vídeo de Demonstração](https://img.youtube.com/vi/ID_DO_VIDEO/maxresdefault.jpg)](https://www.youtube.com/watch?v=i86ckzWllyk)
+Link do vídeo: [![Assista no YouTube](https://img.shields.io/badge/YouTube-Assistir%20Vídeo-red?logo=youtube)](https://www.youtube.com/watch?v=i86ckzWllyk)
 
 ---
 
