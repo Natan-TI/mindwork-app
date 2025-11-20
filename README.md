@@ -144,6 +144,8 @@ No vídeo entregue junto à disciplina, são demonstrados:
 - Insights com gráfico de humor
 - Alertas baseados nos registros
 
+“A persistência via AsyncStorage foi demonstrada no vídeo: ao atualizar a aplicação (reload do Expo), os dados continuam carregando corretamente, provando que são recuperados do armazenamento local e não apenas mantidos em estado de memória.”
+
 Link do vídeo: [![Assista no YouTube](https://img.shields.io/badge/YouTube-Assistir%20Vídeo-red?logo=youtube)](https://www.youtube.com/watch?v=i86ckzWllyk)
 
 ---
