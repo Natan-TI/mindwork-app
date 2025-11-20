@@ -144,13 +144,16 @@ No vídeo entregue junto à disciplina, são demonstrados:
 - Insights com gráfico de humor
 - Alertas baseados nos registros
 
+Link do vídeo: [![Vídeo de Demonstração](https://img.youtube.com/vi/ID_DO_VIDEO/maxresdefault.jpg)](https://www.youtube.com/watch?v=i86ckzWllyk)
+
 ---
 
-## 👤 Autor
+## 👤 Autores
 
-**Natan Eguchi**  
-Engenharia de Software — FIAP  
-2025/2
+- **João Pedro Marques – RM98307**
+- **Kayky Paschoal Ribeiro - RM99929**
+- **Natan Eguchi dos Santos - RM98720**
+
 
 ---
 
