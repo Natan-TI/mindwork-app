@@ -1,50 +1,159 @@
-# Welcome to your Expo app 👋
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+# 🧠 MindWork — Aplicativo Mobile (React Native + Expo)
 
-## Get started
+App desenvolvido como parte da Global Solution, focado em **bem-estar emocional**, **produtividade saudável** e **gestão de clima organizacional**.  
+Esta é a versão **mobile**, construída com **React Native (Expo)** e **TypeScript**, seguindo boas práticas de arquitetura e design.
 
-1. Install dependencies
+---
 
-   ```bash
-   npm install
-   ```
+## 🚀 Sobre o Projeto
 
-2. Start the app
+O **MindWork** é um diário emocional inteligente, pensado para ajudar colaboradores a monitorarem seu humor, estresse e modo de trabalho ao longo do dia.  
+O aplicativo fornece:
 
-   ```bash
-   npx expo start
-   ```
+- Registro diário de bem-estar  
+- Histórico completo persistido com AsyncStorage  
+- Sugestões automáticas com base no estado emocional  
+- Gráfico simples de evolução do humor  
+- Alertas gerados a partir dos registros  
+- Login simulado (mock) para navegação autenticada  
 
-In the output, you'll find options to open the app in a
+Embora o backend em Java já exista, **o app nesta entrega usa apenas dados locais**, sem integração com API.
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+---
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+## 📱 Funcionalidades do App
 
-## Get a fresh project
+### ✔ Login simulado  
+- Apenas para navegação, sem backend real.
 
-When you're ready, run:
+### ✔ Tela de Diário  
+- Registrar humor (1 a 5)  
+- Registrar nível de estresse (1 a 5)  
+- Selecionar modo de trabalho (home office, presencial ou híbrido)  
+- Campo livre para anotações  
+- Sugestão automática gerada com base no humor e estresse  
+- Histórico de registros  
+- Dados persistidos com **AsyncStorage**
 
-```bash
-npm run reset-project
+### ✔ Tela de Insights  
+- Visualização do humor médio  
+- Gráfico de barras com as últimas 7 entradas  
+- Análise simples baseada nos dados locais
+
+### ✔ Tela de Alertas  
+- Listagem de sugestões geradas a partir dos registros  
+- Histórico completo de alertas
+
+---
+
+## 🧪 Persistência de Dados
+
+O app utiliza:
+
+- `AsyncStorage` para salvar:
+  - registros de humor (`entries`)
+  - dados auxiliares da experiência
+
+Dados permanecem mesmo após fechar e reabrir o app.
+
+---
+
+## 🧰 Tecnologias Utilizadas
+
+- **React Native (Expo)**
+- **TypeScript**
+- **Expo Router**
+- **AsyncStorage**
+- **Expo Linear Gradient**
+- **Feather Icons**
+- **React Hooks**
+- **Styled Components via StyleSheet inline**
+
+---
+
+## 📁 Estrutura Simplificada do Projeto
+
+```
+mindwork-mobile/
+ ├─ app/
+ │   ├─ index.tsx                # Tela de login
+ │   ├─ (tabs)/
+ │   │   ├─ _layout.tsx          # Navegação com abas
+ │   │   ├─ index.tsx            # Tela de Diário
+ │   │   ├─ explore.tsx          # Tela de Insights
+ │   │   └─ notifications.tsx    # Tela de Alertas
+ │
+ ├─ components/
+ │   ├─ EntryCard.tsx
+ │   └─ SelectorRow.tsx
+ │
+ ├─ hooks/
+ │   └─ useEntries.ts
+ │
+ ├─ storage/
+ │   ├─ entriesStorage.ts
+ │   └─ statsStorage.ts
+ │
+ ├─ types/
+ │   └─ entries.ts
+ │
+ └─ README.md
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+---
 
-## Learn more
+## ▶️ Como Rodar o Projeto
 
-To learn more about developing your project with Expo, look at the following resources:
+### 1. Instalar dependências
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+```bash
+npm install
+```
 
-## Join the community
+### 2. Iniciar o projeto
 
-Join our community of developers creating universal apps.
+```bash
+npx expo start
+```
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+### 3. Escanear com o celular  
+Use o app **Expo Go**.
+
+Ou rodar no emulador iOS/Android.
+
+---
+
+## 🎨 Visual e Experiência
+
+- Tema criado com **gradiente roxo** (identidade MindWork)  
+- Telas com estética clean e profissional  
+- Ícones padronizados com Feather Icons  
+- Layout responsivo e intuitivo
+
+---
+
+## 📹 Demonstração
+
+No vídeo entregue junto à disciplina, são demonstrados:
+
+- Login
+- Registro de humor
+- Histórico
+- Persistência após fechar o app
+- Insights com gráfico de humor
+- Alertas baseados nos registros
+
+---
+
+## 👤 Autor
+
+**Natan Eguchi**  
+Engenharia de Software — FIAP  
+2025/2
+
+---
+
+## 📄 Licença
+
+Projeto acadêmico — uso educacional.
